@@ -5,15 +5,26 @@
 	home.homeDirectory = "/home/ganyaowl";
 	programs.git.enable = true;
 	home.stateVersion = "25.11";
-	programs.bash = {
+	programs.zsh = {
 		enable = true;
+		dotDir = "${config.xdg.configHome}/zsh";
+		
+		enableCompletion = true;	
+		syntaxHighlighting.enable = true;	
+
 		shellAliases = {
-			btw = "echo I use nixos, btw";
+			ll = "ls -l";
+			update = "sudo nixos-rebuild switch --flake .#nixos";
+		};
+		
+		history = {
+			size = 10000;
+			path = "${config.xdg.dataHome}/zsh/history";
+			extended = true; 
 		};
 	};
 	
-	home.file.".config/qtile".source = ./config/qtile;
-	home.file.".config/nvim".source = ./config/nvim;
+	# home.file.".config/nvim".source = ./config/nvim;
 
 	home.packages = with pkgs; [
 		neovim
@@ -22,5 +33,11 @@
 		nixpkgs-fmt
 		nodejs
 		gcc
+		
+		# niri stuff
+		fuzzel
+		alacritty
+		waybar
 	];
+	
 }
