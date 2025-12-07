@@ -3,23 +3,34 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-25.11";
-    
+    nixpkgs-unstable.url = "nixpkgs/nixos-unstable"; 
+
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";	
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, ... }: {
+  outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, home-manager, ... }: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       modules = [
         ./configuration.nix
+
 	home-manager.nixosModules.home-manager
 	{
 	  home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
-            users.ganyaowl = import ./home.nix;
+            users.ganyaowl = {
+	      imports = [
+	        ./home.nix
+	      ];
+	    }; 
             backupFileExtension = "backup";
 	  };
 	}
