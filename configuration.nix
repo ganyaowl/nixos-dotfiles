@@ -65,12 +65,9 @@
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
-    #  thunderbird
       obsidian
       neovim
       alacritty
-      fuzzel
-      waybar
       swaybg
     ];
   };
@@ -92,10 +89,7 @@
   environment.systemPackages = with pkgs; [
     vim 
     wget
-    git
-	
-    # niri stuff
-    niri
+    git	
     xwayland-satellite
   ];
 
