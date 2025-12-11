@@ -14,6 +14,7 @@
 		syntaxHighlighting.enable = true;	
 
 		shellAliases = {
+			la = "ls -la";
 			ll = "ls -l";
 			update = "sudo nixos-rebuild switch --flake .#nixos";
 		};
@@ -40,6 +41,10 @@
 		fuzzel
 		alacritty
 		waybar
+		swaybg
+
+		# apps???
+		obsidian
 	];
 
 }
