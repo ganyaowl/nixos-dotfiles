@@ -7,7 +7,7 @@
 {
   imports = [
     ./modules/shell/sh.nix
-    ./modules/git/home.nix
+    ./modules/git/git.nix
   ];
 
   home.username = "ganyaowl";
