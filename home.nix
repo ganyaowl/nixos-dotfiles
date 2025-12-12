@@ -5,6 +5,10 @@
 }:
 
 {
+  imports = [
+    ./modules/shell/sh.nix
+  ];
+
   home.username = "ganyaowl";
   home.homeDirectory = "/home/ganyaowl";
 
@@ -31,24 +35,5 @@
     EDITOR = "vim";
   };
   
-  programs.zsh = {
-    enable = true;
-    dotDir = "${config.xdg.configHome}/zsh";
-
-    enableCompletion = true;
-    syntaxHighlighting.enable = true;
-
-    shellAliases = {
-      la = "ls -la";
-      update = "sudo nixos-rebuild switch --flake .#nixos";
-    };
-
-    history = {
-      size = 10000;
-      path = "${config.xdg.dataHome}/zsh/history";
-      extended = true;
-    };
-  };
-
   programs.home-manager.enable = true;
 }
