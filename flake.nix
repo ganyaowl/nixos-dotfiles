@@ -1,10 +1,6 @@
 {
   description = "Ganyaowl's dotfiles";
 
-  nixConfig = {
-    experimental-features = [ "nix-command" "flakes" ];
-  };
-
   inputs = {
     nixpkgs.url = "https://channels.nixos.org/nixos-25.11/nixexprs.tar.xz";
     nixpkgs-unstable.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz"; 
@@ -19,12 +15,13 @@
     self, 
     nixpkgs, 
     nixpkgs-unstable, 
+    home-manager,
     ... 
   } @ inputs: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
       modules = [
         ./configuration.nix
-
 	home-manager.nixosModules.home-manager
 	{
 	  home-manager = {
