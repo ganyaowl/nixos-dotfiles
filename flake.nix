@@ -17,9 +17,23 @@
     nixpkgs-unstable, 
     home-manager,
     ... 
-  } @ inputs: {
+  } @ inputs: 
+  let
+    system = "x86_64-linux";
+    
+    pkgs-unstable = import nixpkgs-unstable {
+      inherit system;
+      config.allowUnfree = true;
+    };
+  in
+  {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
+      inherit system;
+
+      specialArgs = {
+        inherit pkgs-unstable;
+      };
+
       modules = [
         ./configuration.nix
 	home-manager.nixosModules.home-manager
@@ -27,10 +41,13 @@
 	  home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
+            extraSpecialArgs = {
+	      inherit pkgs-unstable;
+	    };
             users.ganyaowl = {
 	      imports = [
 	        ./home.nix
-	      ];
+	      ]; 
 	    }; 
             backupFileExtension = "backup";
 	  };

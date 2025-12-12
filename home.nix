@@ -1,13 +1,14 @@
 {
   config,
   pkgs,
+  pkgs-unstable,
   ...
 }:
 
 {
   imports = [
     ./modules/shell/sh.nix
-    ./modules/git/git.nix
+    ./modules/git/home.nix
   ];
 
   home.username = "ganyaowl";
