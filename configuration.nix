@@ -9,13 +9,32 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos";  
-  networking.networkmanager.enable = true;
-  # networking.wireless.enable = true;
+  networking = {
+    hostName = "nixos";
+    # networking.wireless.enable = true;
 
-  time.timeZone = "Asia/Tashkent";
+    networkmanager.enable = true;
 
-  i18n.defaultLocale = "en_US.UTF-8";
+    # Open ports in the firewall.
+    # networking.firewall.allowedTCPPorts = [ ... ];
+    # networking.firewall.allowedUDPPorts = [ ... ];
+    # Or disable the firewall altogether.
+    # networking.firewall.enable = false;
+
+  }; 
+
+  time = {
+    timeZone = "Asia/Tashkent";
+    hardwareClockInLocalTime = true;
+  }; 
+  
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+
+    extraLocales = [
+      "ru_RU.UTF-8/UTF-8"
+    ];
+  };
 
   services.xserver.enable = true;
 
@@ -85,12 +104,7 @@
   # List services that you want to enable:
   # services.openssh.enable = true;
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-  
+    
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
   ];  
