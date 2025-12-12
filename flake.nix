@@ -1,9 +1,7 @@
 {
-  description = "NixOS configuration with Noctalia";
-
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-25.11";
-    nixpkgs-unstable.url = "nixpkgs/nixos-unstable"; 
+    nixpkgs.url = "https://channels.nixos.org/nixos-25.11/nixexprs.tar.xz";
+    nixpkgs-unstable.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz"; 
 
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";	
@@ -11,7 +9,12 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, home-manager, ... }: {
+  outputs = { 
+    self, 
+    nixpkgs, 
+    nixpkgs-unstable, 
+    ... 
+  } @ inputs: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       modules = [
         ./configuration.nix
