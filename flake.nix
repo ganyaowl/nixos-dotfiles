@@ -1,4 +1,10 @@
 {
+  description = "Ganyaowl's dotfiles";
+
+  nixConfig = {
+    experimental-features = [ "nix-command" "flakes" ];
+  };
+
   inputs = {
     nixpkgs.url = "https://channels.nixos.org/nixos-25.11/nixexprs.tar.xz";
     nixpkgs-unstable.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz"; 
