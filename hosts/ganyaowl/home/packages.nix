@@ -18,6 +18,7 @@
     backblaze-b2
     ltrace
     minio-client
+    unzip
 
     # de
     xorg.xhost
