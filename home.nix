@@ -8,6 +8,7 @@
 {
   imports = [
     ./modules
+    ./hosts/ganyaowl
   ];
 
   home.username = "ganyaowl";
