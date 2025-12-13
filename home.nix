@@ -9,6 +9,7 @@
   imports = [
     ./modules/shell/sh.nix
     ./modules/git/home.nix
+    ./modules/noctalia/noctalia.nix
   ];
 
   home.username = "ganyaowl";
@@ -26,10 +27,6 @@
     gcc
 
     alacritty
-    fuzzel
-    waybar
-    swaybg
-
     obsidian
   ];
 

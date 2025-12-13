@@ -107,7 +107,12 @@
     
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
-  ];  
+  ]; 
+
+  # noctalia stuff - pls refac and get rid of conf.nix...
+  hardware.bluetooth.enable = true;
+  services.power-profiles-daemon.enable =true;
+  services.upower.enable = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   system.stateVersion = "25.11"; 

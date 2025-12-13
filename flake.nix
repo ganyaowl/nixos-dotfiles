@@ -9,6 +9,11 @@
       url = "github:nix-community/home-manager/release-25.11";	
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
   };
 
   outputs = { 
@@ -31,7 +36,7 @@
       inherit system;
 
       specialArgs = {
-        inherit pkgs-unstable;
+        inherit pkgs-unstable inputs;
       };
 
       modules = [
@@ -42,7 +47,7 @@
             useGlobalPkgs = true;
             useUserPackages = true;
             extraSpecialArgs = {
-	      inherit pkgs-unstable;
+	      inherit pkgs-unstable inputs;
 	    };
             users.ganyaowl = {
 	      imports = [
