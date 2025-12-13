@@ -40,7 +40,7 @@
       };
 
       modules = [
-        ./hosts/ganyaowl/home/configuration.nix
+        ./hosts/ganyaowl/configuration.nix
 	home-manager.nixosModules.home-manager
 	{
 	  home-manager = {
