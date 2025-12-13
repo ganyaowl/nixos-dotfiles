@@ -26,7 +26,6 @@
     gcc
 
     alacritty
-    fuzzel
   ];
 
   home.sessionVariables = {
