@@ -27,7 +27,6 @@
 
     alacritty
     fuzzel
-    obsidian
   ];
 
   home.sessionVariables = {
