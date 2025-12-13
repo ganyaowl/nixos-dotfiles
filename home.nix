@@ -27,6 +27,7 @@
     gcc
 
     alacritty
+    fuzzel
     obsidian
   ];
 
