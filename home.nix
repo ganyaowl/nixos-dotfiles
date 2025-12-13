@@ -7,9 +7,7 @@
 
 {
   imports = [
-    ./modules/shell/sh.nix
-    ./modules/git/home.nix
-    ./modules/noctalia/noctalia.nix
+    ./modules
   ];
 
   home.username = "ganyaowl";
