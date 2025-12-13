@@ -17,11 +17,6 @@
   home.stateVersion = "25.11";
 
   home.packages = with pkgs; [
-    neovim
-    ripgrep
-    nil
-    nixpkgs-fmt
-
     nodejs
     gcc
 
@@ -30,7 +25,7 @@
   ];
 
   home.sessionVariables = {
-    EDITOR = "vim";
+    EDITOR = "nvim";
   };
   
   programs.home-manager.enable = true;
