@@ -10,6 +10,8 @@
       dockerfile-language-server
       emmet-language-server
       nixd
+      nil
+      nixpkgs-fmt
       (python3.withPackages(ps: with ps; [
         python-lsp-server
         flake8
