@@ -19,6 +19,8 @@
   home.packages = with pkgs; [
     nodejs
     gcc
+    cargo
+    rustc
 
     alacritty
     fuzzel
