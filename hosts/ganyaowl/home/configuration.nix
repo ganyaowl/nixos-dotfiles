@@ -109,9 +109,8 @@
     nerd-fonts.jetbrains-mono
   ]; 
 
-  hardware = {
-    bluetooth.enable = true;
-    graphics = {
+  hardware.bluetooth.enable = true;
+  hardware.graphics = {
       enable = true;
       extraPackages = [
         intel-media-driver
