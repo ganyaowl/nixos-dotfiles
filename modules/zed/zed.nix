@@ -154,7 +154,7 @@
     soft_wrap = "editor_width";
 
     buffer_font_size = 16;
-    buffer_font_family = "Liga SFMono Nerd Font";
+    buffer_font_family = "JetBrainsMono NF";
 
     ui_font_size = 16;
     ui_font_family = ".SystemUIFont";
