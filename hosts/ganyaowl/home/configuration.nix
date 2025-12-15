@@ -109,8 +109,16 @@
     nerd-fonts.jetbrains-mono
   ]; 
 
-  # noctalia stuff - pls refac and get rid of conf.nix...
-  hardware.bluetooth.enable = true;
+  hardware = {
+    bluetooth.enable = true;
+    graphics = {
+      enable = true;
+      extraPackages = [
+        intel-media-driver
+      ];
+    };
+  };
+
   services.power-profiles-daemon.enable =true;
   services.upower.enable = true;
 
