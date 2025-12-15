@@ -112,7 +112,7 @@
   hardware.bluetooth.enable = true;
   hardware.graphics = {
       enable = true;
-      extraPackages = [
+      extraPackages = with pkgs; [
         intel-media-driver
       ];
   };
