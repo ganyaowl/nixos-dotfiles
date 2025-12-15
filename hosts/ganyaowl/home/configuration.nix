@@ -115,7 +115,6 @@
       extraPackages = [
         intel-media-driver
       ];
-    };
   };
 
   services.power-profiles-daemon.enable =true;
