@@ -75,7 +75,10 @@
 
   # Install firefox.
   programs.firefox.enable = true;
-    
+  
+  # niri
+  programs.niri.enable = true;
+  
   # zsh
   programs.zsh.enable = true;
  
