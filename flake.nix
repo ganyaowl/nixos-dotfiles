@@ -46,22 +46,24 @@
 
       modules = [
         ./hosts/ganyaowl/home/configuration.nix
-	home-manager.nixosModules.home-manager
-	{
-	  home-manager = {
+	      
+        home-manager.nixosModules.home-manager
+	      {
+	        home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
             extraSpecialArgs = {
-	      inherit pkgs-unstable inputs;
-	    };
+	            inherit pkgs-unstable inputs;
+	          };
+            
             users.ganyaowl = {
-	      imports = [
-	        ./home.nix
-	      ]; 
-	    }; 
+	            imports = [
+	              ./home.nix
+	            ]; 
+	          }; 
             backupFileExtension = "backup";
-	  };
-	}
+	        };
+	      }
       ];
     };
   };
