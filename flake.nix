@@ -9,11 +9,29 @@
       url = "github:nix-community/home-manager/release-25.11";	
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
+    
+    # rice stuff
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+    quickshell = {
+      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
+      inputs.quickshell.follows = "quickshell"; # Use same quickshell version
     };
+    matugen = {
+      url = "github:/InioX/Matugen";
+    }; 
+    vicinae = {
+      url = "github:vicinaehq/vicinae";
+    };
+    affinity-nix.url = "github:mrshmllow/affinity-nix";
+    # end of rice stuff
 
     nix4nvchad = {
       url = "github:nix-community/nix4nvchad";
@@ -64,6 +82,15 @@
             backupFileExtension = "backup";
 	        };
 	      }
+
+        inputs.noctalia.nixosModules.default
+        inputs.niri.nixosModules.niri
+        {
+          nixpkgs.overlays = [niri.overlays.niri];
+        }
+        {
+          environment.systemPackages = [affinity-nix.packages.x86_64-linux.v3];
+        }
       ];
     };
   };
