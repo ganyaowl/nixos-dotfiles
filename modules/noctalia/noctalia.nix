@@ -125,6 +125,11 @@
               visualizerType = "linear";
             }
             {
+              alwaysShowPercentage = false;
+              id = "Battery";
+              warningThreshold = 30;
+            }
+            {
               displayMode = "onhover";
               id = "Volume";
             }
