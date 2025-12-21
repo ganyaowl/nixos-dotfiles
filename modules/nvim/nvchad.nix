@@ -1,10 +1,16 @@
-{ inputs, config, pkgs, ... }: {
+{
+  inputs,
+  config,
+  pkgs,
+  ...
+}: {
   imports = [
     inputs.nix4nvchad.homeManagerModule
   ];
   programs.nvchad = {
     enable = true;
     extraPackages = with pkgs; [
+      alejandra
       nodePackages.bash-language-server
       docker-compose-language-service
       dockerfile-language-server
@@ -12,10 +18,11 @@
       nixd
       nil
       nixpkgs-fmt
-      (python3.withPackages(ps: with ps; [
-        python-lsp-server
-        flake8
-      ]))
+      (python3.withPackages (ps:
+        with ps; [
+          python-lsp-server
+          flake8
+        ]))
     ];
     hm-activation = true;
     backup = true;

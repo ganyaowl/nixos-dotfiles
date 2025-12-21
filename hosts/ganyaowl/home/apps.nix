@@ -14,6 +14,4 @@
     thunderbird
     meld
   ];
-
-
 }

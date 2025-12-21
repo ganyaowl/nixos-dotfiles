@@ -3,10 +3,10 @@
 
   inputs = {
     nixpkgs.url = "https://channels.nixos.org/nixos-25.11/nixexprs.tar.xz";
-    nixpkgs-unstable.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz"; 
+    nixpkgs-unstable.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.11";	
+      url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -21,22 +21,20 @@
     };
   };
 
-  outputs = { 
-    self, 
-    nixpkgs, 
-    nixpkgs-unstable, 
+  outputs = {
+    self,
+    nixpkgs,
+    nixpkgs-unstable,
     home-manager,
-    ... 
-  } @ inputs: 
-  let
+    ...
+  } @ inputs: let
     system = "x86_64-linux";
-    
+
     pkgs-unstable = import nixpkgs-unstable {
       inherit system;
       config.allowUnfree = true;
     };
-  in
-  {
+  in {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       inherit system;
 
@@ -46,24 +44,24 @@
 
       modules = [
         ./hosts/ganyaowl/home/configuration.nix
-	      
+
         home-manager.nixosModules.home-manager
-	      {
-	        home-manager = {
+        {
+          home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
             extraSpecialArgs = {
-	            inherit pkgs-unstable inputs;
-	          };
-            
+              inherit pkgs-unstable inputs;
+            };
+
             users.ganyaowl = {
-	            imports = [
-	              ./home.nix
-	            ]; 
-	          }; 
+              imports = [
+                ./home.nix
+              ];
+            };
             backupFileExtension = "backup";
-	        };
-	      }
+          };
+        }
       ];
     };
   };

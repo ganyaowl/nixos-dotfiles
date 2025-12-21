@@ -1,10 +1,11 @@
-{ config, pkgs, ... }:
-
 {
-  imports =
-    [ 
-      ../system
-    ];
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [
+    ../system
+  ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -20,14 +21,13 @@
     # networking.firewall.allowedUDPPorts = [ ... ];
     # Or disable the firewall altogether.
     # networking.firewall.enable = false;
-
-  }; 
+  };
 
   time = {
     timeZone = "Asia/Tashkent";
     hardwareClockInLocalTime = true;
-  }; 
-  
+  };
+
   i18n = {
     defaultLocale = "en_US.UTF-8";
 
@@ -66,7 +66,7 @@
   users.users.ganyaowl = {
     isNormalUser = true;
     description = "ganyaowl";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
     shell = pkgs.zsh;
     packages = with pkgs; [
       tree
@@ -75,21 +75,21 @@
 
   # Install firefox.
   programs.firefox.enable = true;
-  
+
   # niri
   programs.niri.enable = true;
-  
+
   # zsh
   programs.zsh.enable = true;
- 
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # $ nix search <package>
   environment.systemPackages = with pkgs; [
-    vim 
+    vim
     wget
-    git	
+    git
     xwayland-satellite
   ];
 
@@ -104,23 +104,21 @@
   # List services that you want to enable:
   # services.openssh.enable = true;
 
-    
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
-  ]; 
+  ];
 
   hardware.bluetooth.enable = true;
   hardware.graphics = {
-      enable = true;
-      extraPackages = with pkgs; [
-        intel-media-driver
-      ];
+    enable = true;
+    extraPackages = with pkgs; [
+      intel-media-driver
+    ];
   };
 
-  services.power-profiles-daemon.enable =true;
+  services.power-profiles-daemon.enable = true;
   services.upower.enable = true;
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  system.stateVersion = "25.11"; 
-
+  nix.settings.experimental-features = ["nix-command" "flakes"];
+  system.stateVersion = "25.11";
 }

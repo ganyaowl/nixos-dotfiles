@@ -3,9 +3,7 @@
   pkgs,
   pkgs-unstable,
   ...
-}:
-
-{
+}: {
   imports = [
     ./modules
     ./hosts/ganyaowl
@@ -29,6 +27,6 @@
   home.sessionVariables = {
     EDITOR = "nvim";
   };
-  
+
   programs.home-manager.enable = true;
 }

@@ -1,12 +1,14 @@
-{ config, pkgs, ... }:
-let
+{
+  config,
+  pkgs,
+  ...
+}: let
   myAliases = {
     la = "ls -la";
     ".." = "cd ..";
-    update = "sudo nixos-rebuild switch --flake .#nixos"; 
+    update = "sudo nixos-rebuild switch --flake .#nixos";
   };
-in
-{
+in {
   programs.zsh = {
     enable = true;
     dotDir = "${config.xdg.configHome}/zsh";
@@ -21,5 +23,5 @@ in
       path = "${config.xdg.dataHome}/zsh/history";
       extended = true;
     };
-  };   
+  };
 }
