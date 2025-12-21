@@ -19,6 +19,7 @@
     ltrace
     minio-client
     unzip
+    cava
 
     # de
     xorg.xhost
