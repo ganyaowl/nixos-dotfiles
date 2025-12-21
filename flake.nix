@@ -14,6 +14,9 @@
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+    matugen = {
+      url = "github:/InioX/Matugen";
+    };
 
     nix4nvchad = {
       url = "github:nix-community/nix4nvchad";
