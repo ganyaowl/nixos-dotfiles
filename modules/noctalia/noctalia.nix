@@ -250,15 +250,16 @@
         discord_webcord = false;
         enableUserTemplates = false;
         foot = false;
-        fuzzel = false;
-        ghostty = true;
+        fuzzel = true;
+        ghostty = false;
         gtk = true;
         kcolorscheme = true;
         kitty = false;
         pywalfox = false;
-        qt = true;
-        vicinae = true;
-        code = true;
+        qt = false;
+        vicinae = false;
+        code = false;
+        alacritty = true;
       };
 
       ui = {
@@ -281,7 +282,7 @@
           {
             directory = "/home/ganyaowl/Pictures/wallpapers";
             name = "eDP-1";
-            wallpaper = "";
+            wallpaper = "/home/ganyaowl/Pictures/wallpapers/wallpaper.png";
           }
         ];
         randomEnabled = true;
