@@ -8,6 +8,8 @@
     inputs.noctalia.homeModules.default
   ];
 
+  programs.noctalia-shell.systemd.enable = true;
+
   # configure options
   programs.noctalia-shell = {
     enable = true;
