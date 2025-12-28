@@ -73,14 +73,12 @@
     ];
   };
 
-  # Install firefox.
-  programs.firefox.enable = true;
-
-  # niri
-  programs.niri.enable = true;
-
-  # zsh
-  programs.zsh.enable = true;
+  programs = {
+    firefox.enable = true;
+    niri.enable = true;
+    zsh.enable = true;
+    seahorse.enable = true;
+  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -91,6 +89,7 @@
     wget
     git
     xwayland-satellite
+    libsecret
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -103,6 +102,10 @@
 
   # List services that you want to enable:
   # services.openssh.enable = true;
+  services.power-profiles-daemon.enable = true;
+  services.upower.enable = true;
+  services.gnome.gnome-keyring.enable = true;
+
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
@@ -114,10 +117,7 @@
     extraPackages = with pkgs; [
       intel-media-driver
     ];
-  };
-
-  services.power-profiles-daemon.enable = true;
-  services.upower.enable = true;
+  };  
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
   system.stateVersion = "25.11";
