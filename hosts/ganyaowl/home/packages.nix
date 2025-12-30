@@ -20,6 +20,7 @@
     minio-client
     unzip
     cava
+    btop
 
     # de
     xorg.xhost
