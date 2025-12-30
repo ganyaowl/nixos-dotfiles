@@ -6,6 +6,7 @@
 }: {
   imports = [
     ./modules
+    ./config
     ./hosts/ganyaowl
   ];
 
@@ -21,7 +22,8 @@
     rustc
 
     alacritty
-    fuzzel
+    # fuzzel
+    rofi
   ];
 
   home.sessionVariables = {
