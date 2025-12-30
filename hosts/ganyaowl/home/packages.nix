@@ -30,5 +30,10 @@
     playerctl
     copyq
     pavucontrol
+
+    # wm - qtile
+    picom
+    xserver-xephyr
+    nitrogen
   ];
 }
