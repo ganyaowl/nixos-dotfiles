@@ -36,10 +36,17 @@
     ];
   };
 
-  services.xserver.enable = true;
-
-  services.displayManager.gdm.enable = true;
+  # services.xserver.enable = true;
+  # services.displayManager.gdm.enable = true;
   # services.desktopManager.gnome.enable = true;
+
+  services.xserver = {
+    enable = true;
+    autoRepeatDelay = 200;
+    autoRepeatInterval = 35;
+    windowManager.qtile.enable = true;
+  };
+  services.displayManager.ly.enable = true;
 
   services.xserver.xkb = {
     layout = "us,ru";
