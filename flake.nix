@@ -42,7 +42,7 @@
       inherit system;
 
       specialArgs = {
-        inherit pkgs-unstable inputs;
+        inherit pkgs-unstable system inputs;
       };
 
       modules = [
@@ -54,7 +54,7 @@
             useGlobalPkgs = true;
             useUserPackages = true;
             extraSpecialArgs = {
-              inherit pkgs-unstable inputs;
+              inherit pkgs-unstable system inputs;
             };
 
             users.ganyaowl = {
