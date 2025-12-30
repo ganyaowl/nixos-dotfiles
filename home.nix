@@ -22,8 +22,7 @@
     rustc
 
     alacritty
-    # fuzzel
-    rofi
+    fuzzel
   ];
 
   home.sessionVariables = {
