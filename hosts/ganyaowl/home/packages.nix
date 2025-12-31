@@ -34,5 +34,7 @@
     # wm - qtile
     picom
     nitrogen
+    maim
+    xclip
   ];
 }
