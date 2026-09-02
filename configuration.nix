@@ -89,10 +89,8 @@
     enableCompletion = true;
     syntaxHighlighting.enable = true;
 
-    history = {
-      size = 10000;
-      path = "$HOME/zsh_history";
-    };
+    histSize = 10000;
+    histFile = "$HOME/zsh_history";
 
     ohMyZsh = {
       enable = true;
