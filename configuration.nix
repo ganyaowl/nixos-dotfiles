@@ -81,13 +81,28 @@
   programs = {
     firefox.enable = true;
     niri.enable = true;
-    zsh.enable = true;
   };
 
-  programs.zsh.ohMyZsh = {
+  programs.zsh = {
     enable = true;
-    plugins = [ "git" ];
+    dotDir = "${config.xdg.configHome}/zsh";
+
+    enableCompletion = true;
+    syntaxHighlighting.enable = true;
+
+    history = {
+      size = 10000;
+      path = "${config.xdg.dataHome}/zsh/history";
+      extended = true; 
+    };
+
+    ohMyZsh = {
+      enable = true;
+      theme = "robbyrussell";
+      plugins = [ "git" "z" ];
+    };
   };
+
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
