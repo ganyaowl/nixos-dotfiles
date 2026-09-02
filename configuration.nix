@@ -84,6 +84,11 @@
     zsh.enable = true;
   };
 
+  programs.zsh.ohMyZsh = {
+    enable = true;
+    plugins = [ "git" ];
+  };
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
