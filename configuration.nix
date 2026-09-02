@@ -83,17 +83,15 @@
     niri.enable = true;
   };
 
+  # TO-DO: move it to home-manager 
   programs.zsh = {
     enable = true;
-    dotDir = "${config.xdg.configHome}/zsh";
-
     enableCompletion = true;
     syntaxHighlighting.enable = true;
 
     history = {
       size = 10000;
-      path = "${config.xdg.dataHome}/zsh/history";
-      extended = true; 
+      path = "$HOME/zsh_history";
     };
 
     ohMyZsh = {
