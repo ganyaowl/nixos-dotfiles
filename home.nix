@@ -13,10 +13,13 @@
     enableCompletion = true;
     syntaxHighlighting.enable = true;
 
-    histSize = 10000;
-    histFile = "$HOME/zsh_history";
+    history = {
+      size = 10000;
+      path = "${config.xdg.dataHome}/zsh/history";
+      extended = true;
+    };
 
-    ohMyZsh = {
+    oh-my-zsh = {
       enable = true;
       theme = "robbyrussell";
       plugins = [ "git" "z" ];
