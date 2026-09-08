@@ -81,24 +81,8 @@
   programs = {
     firefox.enable = true;
     niri.enable = true;
+    zsh.enable = true;
   };
-
-  # TO-DO: move it to home-manager 
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    syntaxHighlighting.enable = true;
-
-    histSize = 10000;
-    histFile = "$HOME/zsh_history";
-
-    ohMyZsh = {
-      enable = true;
-      theme = "robbyrussell";
-      plugins = [ "git" "z" ];
-    };
-  };
-
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
