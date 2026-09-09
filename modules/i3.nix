@@ -1,10 +1,14 @@
 { config, lib, pkgs, ... }:
 
 {
+  xresources.properties = {
+    "Xft.dpi" = 120;
+    "Xcursor.size" = 30;
+  };
+
   xsession.windowManager.i3 = {
     enable = true;
     config = {
-      modifier = "Mod4";
       terminal = "kitty";
 
       bars = [
@@ -26,9 +30,9 @@
     bars = {
       top = {
         theme = "ctp-mocha";
-	icons = "nerd-font-v2";
+	icons = "material-nf";
         blocks = [
-	  { block = "disk"; path = "/"; }
+	  { block = "disk_space"; path = "/"; }
 	  { block = "memory"; }
 	  { block = "cpu"; }
 	  { block = "battery"; }
