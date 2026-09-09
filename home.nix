@@ -1,6 +1,10 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+    ./modules
+  ];
+
   home.username = "ganyaowl";
   home.homeDirectory = "/home/ganyaowl";
 
@@ -25,4 +29,6 @@
       plugins = [ "git" "z" ];
     };
   };
+
+  programs.kitty.enable = true;
 }

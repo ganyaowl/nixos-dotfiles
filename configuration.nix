@@ -42,6 +42,18 @@
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
+  
+  # i3wm
+  services.xserver.windowManager.i3 = {
+    enable = true;
+    extraPackages = with pkgs; [
+      dmenu
+      i3status-rust
+      i3lock
+    ];
+  };
+  security.pam.services.i3lock.enable = true;
+  programs.dconf.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -95,6 +107,8 @@
     git
     xwayland-satellite
     libsecret
+    # --- i3
+    lxappearance
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
