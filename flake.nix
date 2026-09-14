@@ -45,12 +45,19 @@
           python3
           ruff
         ];
+
+        shellHook = ''
+          exec zsh
+        '';
       };
 
       go = pkgs.mkShell {
         packages = with pkgs; [
           go
         ];
+        shellHook = ''
+          exec zsh
+        '';
       };
     };
 
