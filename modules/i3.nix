@@ -1,6 +1,9 @@
-{ config, lib, pkgs, ... }:
-
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   xresources.properties = {
     "Xft.dpi" = 120;
     "Xcursor.size" = 30;
@@ -19,8 +22,8 @@
       ];
 
       fonts = {
-        names = [ "JetBrainsMono Nerd Font" ];
-	size = 11.0;
+        names = ["JetBrainsMono Nerd Font"];
+        size = 11.0;
       };
     };
   };
@@ -30,14 +33,17 @@
     bars = {
       top = {
         theme = "ctp-mocha";
-	icons = "material-nf";
+        icons = "material-nf";
         blocks = [
-	  { block = "disk_space"; path = "/"; }
-	  { block = "memory"; }
-	  { block = "cpu"; }
-	  { block = "battery"; }
-	  { block = "sound"; }
-	  { block = "time"; }
+          {
+            block = "disk_space";
+            path = "/";
+          }
+          {block = "memory";}
+          {block = "cpu";}
+          {block = "battery";}
+          {block = "sound";}
+          {block = "time";}
         ];
       };
     };

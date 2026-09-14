@@ -1,10 +1,11 @@
-{ config, pkgs, ... }:
-
 {
-  imports =
-    [ 
-      ./hardware-configuration.nix
-    ];
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -42,7 +43,7 @@
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
-  
+
   # i3wm
   services.xserver.windowManager.i3 = {
     enable = true;
@@ -82,7 +83,7 @@
   users.users."ganyaowl" = {
     isNormalUser = true;
     description = "ganyaowl";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
     shell = pkgs.zsh;
     packages = with pkgs; [
       kdePackages.kate
@@ -101,7 +102,7 @@
 
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim 
+    vim
     neovim
     wget
     git
@@ -142,8 +143,7 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
-  
-  nix.settings.experimental-features = ["nix-command" "flakes"]; 
-  system.stateVersion = "26.05"; # Did you read the comment?
 
+  nix.settings.experimental-features = ["nix-command" "flakes"];
+  system.stateVersion = "26.05"; # Did you read the comment?
 }

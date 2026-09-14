@@ -11,26 +11,30 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }@inputs: 
-  let
+  outputs = {
+    self,
+    nixpkgs,
+    nixpkgs-unstable,
+    home-manager,
+    ...
+  } @ inputs: let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
-  in
-  {
+  in {
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux"; 
+        system = "x86_64-linux";
         modules = [
           ./configuration.nix
-	  home-manager.nixosModules.default
-	  {
-	    home-manager = {
-	      useGlobalPkgs = true;
-	      useUserPackages = true;
-	      extraSpecialArgs = { inherit inputs; };
-	      users.ganyaowl = ./home.nix;
-	    };
-	  }
+          home-manager.nixosModules.default
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              extraSpecialArgs = {inherit inputs;};
+              users.ganyaowl = ./home.nix;
+            };
+          }
         ];
       };
     };
@@ -38,19 +42,18 @@
     devShells.${system} = {
       python = pkgs.mkShell {
         packages = with pkgs; [
-	  python3
-	  ruff
-	];
+          python3
+          ruff
+        ];
       };
 
       go = pkgs.mkShell {
         packages = with pkgs; [
-	  go
-	];
+          go
+        ];
       };
     };
 
     formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
   };
 }
-
