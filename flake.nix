@@ -11,7 +11,12 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }@inputs: {
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }@inputs: 
+  let
+    system = "x86_64-linux";
+    pkgs = nixpkgs.legacyPackages.${system};
+  in
+  {
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux"; 
@@ -29,6 +34,23 @@
         ];
       };
     };
+
+    devShells.${system} = {
+      python = pkgs.mkShell {
+        packages = with pkgs; [
+	  python3
+	  ruff
+	];
+      };
+
+      go = pkgs.mkShell {
+        packages = with pkgs; [
+	  go
+	];
+      };
+    };
+
+    formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
   };
 }
 
