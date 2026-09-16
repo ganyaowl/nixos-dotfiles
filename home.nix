@@ -15,4 +15,8 @@
   programs.home-manager.enable = true;
 
   programs.zk.enable = true;
+
+  home.packages = with pkgs; [
+    basalt
+  ];
 }
