@@ -17,6 +17,6 @@
   programs.zk.enable = true;
 
   home.packages = with pkgs; [
-    basalt
+    glow
   ];
 }
