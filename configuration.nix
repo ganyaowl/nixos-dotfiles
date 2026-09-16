@@ -51,6 +51,7 @@
       dmenu
       i3status-rust
       i3lock
+      xclip
     ];
   };
   security.pam.services.i3lock.enable = true;
