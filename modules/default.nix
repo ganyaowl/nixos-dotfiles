@@ -3,5 +3,6 @@
     ./i3.nix
     ./zsh.nix
     ./kitty.nix
+    ./nvim.nix
   ];
 }
