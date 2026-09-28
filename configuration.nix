@@ -45,6 +45,7 @@
   services.desktopManager.plasma6.enable = true;
 
   # i3wm
+  services.xserver.dpi = 120;
   services.xserver.windowManager.i3 = {
     enable = true;
     extraPackages = with pkgs; [

@@ -4,10 +4,10 @@
   pkgs,
   ...
 }: {
-  xresources.properties = {
-    "Xft.dpi" = 120;
-    "Xcursor.size" = 30;
-  };
+  # xresources.properties = {
+  #   "Xft.dpi" = 120;
+  #   "Xcursor.size" = 30;
+  # };
 
   xsession.windowManager.i3 = {
     enable = true;
