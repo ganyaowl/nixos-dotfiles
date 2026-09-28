@@ -6,13 +6,23 @@
 }: {
   xresources.properties = {
     "Xft.dpi" = 120;
-  #   "Xcursor.size" = 30;
+    #   "Xcursor.size" = 30;
   };
 
   xsession.windowManager.i3 = {
     enable = true;
     config = {
       terminal = "kitty";
+
+      window = {
+        titlebar = false;
+        border = 1;
+      };
+
+      floating = {
+        titlebar = false;
+        border = 1;
+      };
 
       bars = [
         {
