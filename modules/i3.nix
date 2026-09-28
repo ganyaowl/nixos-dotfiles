@@ -4,10 +4,10 @@
   pkgs,
   ...
 }: {
-  # xresources.properties = {
-  #   "Xft.dpi" = 120;
+  xresources.properties = {
+    "Xft.dpi" = 120;
   #   "Xcursor.size" = 30;
-  # };
+  };
 
   xsession.windowManager.i3 = {
     enable = true;
@@ -16,8 +16,8 @@
 
       bars = [
         {
-          position = "top";
-          statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-top.toml";
+          position = "bottom";
+          statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-bottom.toml";
           fonts = {
             names = ["JetBrainsMono Nerd Font"];
             size = 12.0;
@@ -35,7 +35,7 @@
   programs.i3status-rust = {
     enable = true;
     bars = {
-      top = {
+      bottom = {
         theme = "ctp-mocha";
         icons = "material-nf";
         blocks = [
