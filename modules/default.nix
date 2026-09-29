@@ -5,5 +5,6 @@
     ./kitty.nix
     ./nvim.nix
     ./apps.nix
+    ./picom.nix
   ];
 }

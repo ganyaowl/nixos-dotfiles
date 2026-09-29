@@ -12,7 +12,6 @@
     playerctl
     pavucontrol
     maim
-    picom
 
     # Media & Documents viewer
     imv
