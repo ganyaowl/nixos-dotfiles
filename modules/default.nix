@@ -4,5 +4,6 @@
     ./zsh.nix
     ./kitty.nix
     ./nvim.nix
+    ./apps.nix
   ];
 }
