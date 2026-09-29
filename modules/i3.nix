@@ -14,6 +14,11 @@
     config = {
       terminal = "kitty";
 
+      keybindings = lib.mkOptionDefault {
+        "Print" = "exec --no-startup-id maim | xclip -selection clipboard -t image/png";
+        "Shift+Print" = "exec --no-startup-id maim -s | xclip -selection clipboard -t image/png";
+      };
+
       window = {
         titlebar = false;
         border = 1;
