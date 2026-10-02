@@ -19,6 +19,7 @@
     mpv
     zathura
     glow
+    mdcat
     imagemagick
 
     # File management
