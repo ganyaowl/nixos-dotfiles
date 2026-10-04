@@ -27,17 +27,18 @@
     pkgs = nixpkgs.legacyPackages.${system};
   in {
     nixosConfigurations = {
-      nixos = nixpkgs.lib.nixosSystem {
+      laptop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+        specialArgs = {inherit inputs;};
         modules = [
-          ./configuration.nix
+          ./hosts/laptop
           home-manager.nixosModules.default
           {
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
               extraSpecialArgs = {inherit inputs;};
-              users.ganyaowl = ./home.nix;
+              users.ganyaowl = ./hosts/laptop/home;
             };
           }
         ];

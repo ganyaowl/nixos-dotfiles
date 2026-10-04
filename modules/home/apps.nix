@@ -3,7 +3,6 @@
   pkgs,
   ...
 }: {
-  
   programs.zk.enable = true;
 
   home.packages = with pkgs; [
