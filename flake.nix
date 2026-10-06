@@ -25,6 +25,7 @@
   } @ inputs: let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
+    pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
   in {
     nixosConfigurations = {
       laptop = nixpkgs.lib.nixosSystem {
@@ -61,7 +62,28 @@
         packages = with pkgs; [
           go
         ];
+
         shellHook = ''
+          exec zsh
+        '';
+      };
+
+      ai = pkgs-unstable.mkShell {
+        packages = with pkgs-unstable; [
+          gemini-cli
+          codex
+        ];
+
+        shellHook = ''
+          if [ -f .env ]; then
+            set -a
+            source .env
+            set +a
+            echo "Loaded .env variables"
+          else
+            echo -e "\033[0;31mWarning: .env file not found. Set your API keys to use CLI tools.\033[0m"
+          fi
+
           exec zsh
         '';
       };
