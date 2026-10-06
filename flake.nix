@@ -5,6 +5,8 @@
     nixpkgs.url = "https://channels.nixos.org/nixos-26.05/nixexprs.tar.xz";
     nixpkgs-unstable.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
 
+    llm-agents.url = "github:numtide/llm-agents.nix";
+
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -21,6 +23,7 @@
     nixpkgs,
     nixpkgs-unstable,
     home-manager,
+    llm-agents,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -68,10 +71,10 @@
         '';
       };
 
-      ai = pkgs-unstable.mkShell {
-        packages = with pkgs-unstable; [
-          gemini-cli
-          codex
+      ai = pkgs.mkShell {
+        packages = [
+          llm-agents.packages.${system}.antigravity-cli
+          llm-agents.packages.${system}.codex
         ];
 
         shellHook = ''
