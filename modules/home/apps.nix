@@ -30,5 +30,8 @@
     btop
     htop
     yt-dlp
+    
+    # for codex
+    bubblewrap
   ];
 }

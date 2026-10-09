@@ -6,5 +6,6 @@
     ./nvim.nix
     ./apps.nix
     ./picom.nix
+    ./nodejs.nix
   ];
 }
