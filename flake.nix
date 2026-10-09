@@ -14,11 +14,6 @@
       url = "github:nix-community/nix4nvchad";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    llm-agents = {
-      url = "github:numtide/llm-agents.nix";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
   };
 
   outputs = {
@@ -26,7 +21,6 @@
     nixpkgs,
     nixpkgs-unstable,
     home-manager,
-    llm-agents,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -70,26 +64,6 @@
         ];
 
         shellHook = ''
-          exec zsh
-        '';
-      };
-
-      ai = pkgs.mkShell {
-        packages = [
-          llm-agents.packages.${system}.antigravity-cli
-          llm-agents.packages.${system}.codex
-        ];
-
-        shellHook = ''
-          if [ -f .env ]; then
-            set -a
-            source .env
-            set +a
-            echo "Loaded .env variables"
-          else
-            echo -e "\033[0;31mWarning: .env file not found. Set your API keys to use CLI tools.\033[0m"
-          fi
-
           exec zsh
         '';
       };
