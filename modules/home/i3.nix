@@ -13,6 +13,7 @@
     enable = true;
     config = {
       terminal = "kitty";
+      menu = "${pkgs.dmenu}/bin/dmenu_run -fn 'JetBrainsMono Nerd Font:size=12' -nb '#1e1e2e' -nf '#cdd6f4' -sb '#89dceb' -sf '#1e1e2e'";
 
       keybindings = lib.mkOptionDefault {
         "Print" = "exec --no-startup-id maim | xclip -selection clipboard -t image/png";
