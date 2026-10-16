@@ -1,5 +1,6 @@
 {...}: {
   imports = [
+    ./git.nix
     ./i3.nix
     ./zsh.nix
     ./kitty.nix
