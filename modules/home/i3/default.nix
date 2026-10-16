@@ -67,6 +67,30 @@
           {block = "memory";}
           {block = "cpu";}
           {block = "battery";}
+          {
+            block = "net";
+            device = "^wl.*";
+            format = " $icon ";
+            inactive_format = " $icon × ";
+            click = [
+              {
+                button = "left";
+                cmd = "${pkgs.kitty}/bin/kitty ${pkgs.networkmanager}/bin/nmtui";
+              }
+            ];
+          }
+          {
+            block = "custom";
+            command = ":";
+            interval = "once";
+            format = " ^icon_bluetooth ";
+            click = [
+              {
+                button = "left";
+                cmd = "QT_QPA_PLATFORM=xcb ${pkgs.kdePackages.kcmutils}/bin/kcmshell6 kcm_bluetooth";
+              }
+            ];
+          }
           {block = "sound";}
           {block = "time";}
         ];
