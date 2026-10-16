@@ -51,6 +51,16 @@
         icons = "material-nf";
         blocks = [
           {
+            block = "music";
+            format = " $icon {$combo.str(w:20,rot_interval:0.7) $play |}";
+            click = [
+              {
+                button = "left";
+                action = "play_pause";
+              }
+            ];
+          }
+          {
             block = "disk_space";
             path = "/";
           }
