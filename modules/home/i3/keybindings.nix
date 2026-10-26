@@ -11,6 +11,9 @@
   modifier = config.xsession.windowManager.i3.config.modifier;
 in {
   xsession.windowManager.i3.config.keybindings = lib.mkOptionDefault {
+    "${modifier}+Return" = exec config.xsession.windowManager.i3.config.terminal;
+    "${modifier}+d" = exec config.xsession.windowManager.i3.config.menu;
+
     "Print" = exec "maim | xclip -selection clipboard -t image/png";
     "Shift+Print" = exec "maim -s | xclip -selection clipboard -t image/png";
 

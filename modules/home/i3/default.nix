@@ -13,6 +13,7 @@
       menu = "${pkgs.dmenu}/bin/dmenu_run -fn 'JetBrainsMono Nerd Font:size=12' -nb '#FFFFFF' -nf '#050505' -sb '#1875D3' -sf '#FFFFFF'";
 
       gaps.inner = 8;
+      gaps.outer = 4;
 
       startup = [
         {
