@@ -17,6 +17,14 @@
 
       gaps.inner = 8;
 
+      startup = [
+        {
+          command = "${pkgs.feh}/bin/feh --no-fehbg --bg-fill \"$HOME/.background-image\"";
+          always = true;
+          notification = false;
+        }
+      ];
+
       colors = {
         background = "#FFFFFF";
         focused = {
