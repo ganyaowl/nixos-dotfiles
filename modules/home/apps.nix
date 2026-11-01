@@ -11,6 +11,7 @@
     playerctl
     pavucontrol
     maim
+    nitrogen
 
     # Media & Documents viewer
     imv

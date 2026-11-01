@@ -17,7 +17,7 @@
 
       startup = [
         {
-          command = "${pkgs.feh}/bin/feh --no-fehbg --bg-fill \"$HOME/.background-image\"";
+          command = "${pkgs.nitrogen}/bin/nitrogen --restore";
           always = true;
           notification = false;
         }
