@@ -4,6 +4,7 @@
     ./i3
     ./zsh.nix
     ./kitty.nix
+    ./rofi.nix
     ./nvim.nix
     ./apps.nix
     ./picom.nix

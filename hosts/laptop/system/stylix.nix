@@ -24,6 +24,5 @@
   home-manager.users.ganyaowl.stylix.targets = {
     i3.enable = true;
     kitty.enable = true;
-    rofi.enable = true;
   };
 }
