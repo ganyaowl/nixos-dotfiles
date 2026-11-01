@@ -5,6 +5,11 @@
     nixpkgs.url = "https://channels.nixos.org/nixos-26.05/nixexprs.tar.xz";
     nixpkgs-unstable.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
 
+    stylix = {
+      url = "github:nix-community/stylix/release-26.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -34,6 +39,7 @@
         modules = [
           ./hosts/laptop
           home-manager.nixosModules.default
+          inputs.stylix.nixosModules.stylix
           {
             home-manager = {
               useGlobalPkgs = true;
