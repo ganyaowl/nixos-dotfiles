@@ -7,7 +7,7 @@
     enable = true;
     autoEnable = false;
     polarity = "light";
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/one-light.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-latte.yaml";
     fonts = {
       monospace = {
         package = pkgs.nerd-fonts.jetbrains-mono;

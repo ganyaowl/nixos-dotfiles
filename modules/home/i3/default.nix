@@ -16,9 +16,6 @@
       terminal = "kitty";
       menu = "${config.programs.rofi.package}/bin/rofi -show drun";
 
-      gaps.inner = 8;
-      gaps.outer = 4;
-
       startup = [
         {
           command = "${pkgs.nitrogen}/bin/nitrogen --restore";
@@ -29,18 +26,18 @@
 
       window = {
         titlebar = false;
-        border = 1;
+        border = 0;
       };
 
       floating = {
         titlebar = false;
-        border = 1;
+        border = 0;
       };
 
       bars = [
         (
           {
-            position = "top";
+            position = "bottom";
             statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-bottom.toml";
           }
           // config.stylix.targets.i3.exportedBarConfig
@@ -53,22 +50,9 @@
     enable = true;
     bars = {
       bottom = {
-        settings.theme.theme = "plain";
-        settings.theme.overrides =
-          config.lib.stylix.i3status-rust.bar
-          // {separator = " | ";};
+        theme = "ctp-latte";
         icons = "material-nf";
         blocks = [
-          {
-            block = "music";
-            format = " $icon {$combo.str(w:20,rot_interval:0.7) $play |}";
-            click = [
-              {
-                button = "left";
-                action = "play_pause";
-              }
-            ];
-          }
           {
             block = "disk_space";
             path = "/";
@@ -85,18 +69,6 @@
               {
                 button = "left";
                 cmd = "${pkgs.kitty}/bin/kitty ${pkgs.networkmanager}/bin/nmtui";
-              }
-            ];
-          }
-          {
-            block = "custom";
-            command = ":";
-            interval = "once";
-            format = " ^icon_bluetooth ";
-            click = [
-              {
-                button = "left";
-                cmd = "QT_QPA_PLATFORM=xcb ${pkgs.kdePackages.kcmutils}/bin/kcmshell6 kcm_bluetooth";
               }
             ];
           }
