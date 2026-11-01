@@ -14,10 +14,10 @@ in {
     enable = true;
     terminal = "${pkgs.kitty}/bin/kitty";
     font = "${config.stylix.fonts.monospace.name} ${toString config.stylix.fonts.sizes.popups}";
-    theme = pkgs.runCommand "catppuccin-latte.rasi" {} ''
+    theme = toString (pkgs.runCommand "catppuccin-latte.rasi" {} ''
       cat ${catppuccin}/themes/catppuccin-latte.rasi \
         ${catppuccin}/catppuccin-default.rasi > "$out"
-    '';
+    '');
     extraConfig = {
       modi = "drun,window,run";
       show-icons = true;
