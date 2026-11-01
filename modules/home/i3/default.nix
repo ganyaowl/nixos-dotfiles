@@ -2,9 +2,7 @@
   config,
   pkgs,
   ...
-}: let
-  colors = config.lib.stylix.colors.withHashtag;
-in {
+}: {
   imports = [./keybindings.nix];
 
   xresources.properties = {
@@ -16,7 +14,7 @@ in {
     enable = true;
     config = {
       terminal = "kitty";
-      menu = "${pkgs.dmenu}/bin/dmenu_run -fn 'JetBrainsMono Nerd Font:size=12' -nb '${colors.base00}' -nf '${colors.base05}' -sb '${colors.base0D}' -sf '${colors.base00}'";
+      menu = "${config.programs.rofi.package}/bin/rofi -show drun";
 
       gaps.inner = 8;
       gaps.outer = 4;

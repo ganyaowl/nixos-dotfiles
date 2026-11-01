@@ -28,6 +28,7 @@
   home-manager.users.ganyaowl.stylix.targets = {
     i3.enable = true;
     kitty.enable = true;
+    rofi.enable = true;
   };
 
   # Bootloader.
@@ -81,7 +82,6 @@
   services.xserver.windowManager.i3 = {
     enable = true;
     extraPackages = with pkgs; [
-      dmenu
       i3status-rust
       i3lock
       xclip
