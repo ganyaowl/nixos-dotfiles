@@ -47,7 +47,13 @@
   services.xserver.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
+  services.displayManager.ly = {
+    enable = true;
+    settings = {
+      animation = "doom";
+      hide_version_string = true;
+    };
+  };
   services.desktopManager.plasma6.enable = true;
 
   # i3wm
