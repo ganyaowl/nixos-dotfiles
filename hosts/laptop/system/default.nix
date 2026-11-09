@@ -46,7 +46,6 @@
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
 
-  # Enable the KDE Plasma Desktop Environment.
   services.displayManager.ly = {
     enable = true;
     settings = {
@@ -54,7 +53,6 @@
       hide_version_string = true;
     };
   };
-  services.desktopManager.plasma6.enable = true;
 
   # i3wm
   services.xserver.dpi = 120;
@@ -99,7 +97,6 @@
     extraGroups = ["networkmanager" "wheel"];
     shell = pkgs.zsh;
     packages = with pkgs; [
-      kdePackages.kate
       wl-clipboard
     ];
   };
