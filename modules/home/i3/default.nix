@@ -2,12 +2,19 @@
   config,
   pkgs,
   ...
-}: {
+}: let
+  colors = config.lib.stylix.colors.withHashtag;
+  barStyle = config.stylix.targets.i3.exportedBarConfig;
+  background = "${colors.base00}e6";
+  workspace = text: {
+    inherit text background;
+    border = background;
+  };
+in {
   imports = [./keybindings.nix];
 
   xresources.properties = {
     "Xft.dpi" = 120;
-    #   "Xcursor.size" = 30;
   };
 
   xsession.windowManager.i3 = {
@@ -36,11 +43,19 @@
 
       bars = [
         (
-          {
+          barStyle
+          // {
             position = "bottom";
+            command = "${pkgs.i3}/bin/i3bar --transparency";
             statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-bottom.toml";
+            colors = barStyle.colors // {
+              inherit background;
+              focusedWorkspace = workspace colors.base0D;
+              activeWorkspace = workspace colors.base05;
+              inactiveWorkspace = workspace colors.base03;
+              urgentWorkspace = workspace colors.base08;
+            };
           }
-          // config.stylix.targets.i3.exportedBarConfig
         )
       ];
     };
@@ -50,16 +65,20 @@
     enable = true;
     bars = {
       bottom = {
-        theme = "ctp-latte";
+        settings.theme.theme = "native";
         icons = "material-nf";
+        settings.theme.overrides = {
+          warning_fg = colors.base09;
+          critical_fg = colors.base08;
+        };
         blocks = [
+          {block = "cpu";}
+          {block = "memory";}
           {
             block = "disk_space";
             path = "/";
           }
-          {block = "memory";}
-          {block = "cpu";}
-          {block = "battery";}
+          {block = "time";}
           {
             block = "net";
             device = "^wl.*";
@@ -73,7 +92,7 @@
             ];
           }
           {block = "sound";}
-          {block = "time";}
+          {block = "battery";}
         ];
       };
     };
