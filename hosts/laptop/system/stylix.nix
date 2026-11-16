@@ -24,6 +24,7 @@
   home-manager.users.ganyaowl.stylix.targets = {
     gtk.enable = true;
     i3.enable = true;
+    kde.enable = true;
     kitty.enable = true;
     qt.enable = true;
     rofi.enable = true;
