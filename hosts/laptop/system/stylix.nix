@@ -6,8 +6,8 @@
   stylix = {
     enable = true;
     autoEnable = false;
-    polarity = "light";
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-latte.yaml";
+    polarity = "dark";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest.yaml";
     fonts = {
       monospace = {
         package = pkgs.nerd-fonts.jetbrains-mono;
@@ -26,5 +26,6 @@
     i3.enable = true;
     kitty.enable = true;
     qt.enable = true;
+    rofi.enable = true;
   };
 }

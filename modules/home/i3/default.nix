@@ -5,7 +5,7 @@
 }: let
   colors = config.lib.stylix.colors.withHashtag;
   barStyle = config.stylix.targets.i3.exportedBarConfig;
-  background = "${colors.base00}e6";
+  background = colors.base00;
   workspace = text: {
     inherit text background;
     border = background;
